@@ -4,11 +4,11 @@ ENV TRACCAR_VERSION 4.0
 ENV TRACCAR_WEB_VERSION 0.12.3
 ENV MYSQL_HOST localhost
 ENV MYSQL_PORT 3306
-ENV MYSQL_DATABASE traccar
-ENV MYSQL_USER traccar
-ENV MYSQL_PASSWORD traccar
+ENV MYSQL_DATABASE streetlight
+ENV MYSQL_USER streetlight
+ENV MYSQL_PASSWORD streetlight
 
-WORKDIR /opt/traccar
+WORKDIR /opt/streetlight
 
 RUN set -ex && \
     apk add --no-cache wget mysql-client sed && \
@@ -22,11 +22,9 @@ RUN set -ex && \
     
 COPY start.sh start.sh
 
-VOLUME "/opt/traccar/logs"
+VOLUME "/opt/streetlight/logs"
 
-EXPOSE 8082
-EXPOSE 5023-5023/tcp
-EXPOSE 5023-5023/udp
+EXPOSE 8083
 EXPOSE 5174-5174/tcp
 EXPOSE 5174-5174/udp
 
