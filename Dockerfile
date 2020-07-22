@@ -13,7 +13,7 @@ WORKDIR /opt/streetlight
 RUN set -ex && \
     apk add --no-cache wget mysql-client sed && \
     \
-    wget -qO /tmp/traccar.zip https://giahungtrieu.net/traccar-other-4.0.zip && \
+    wget -qO /tmp/traccar.zip https://api.giahungtrieu.net/traccar-other-4.0.zip && \
     unzip -qo /tmp/traccar.zip -d /opt/traccar && \
     wget -qO /opt/traccar/traccar-web.war https://github.com/vitalidze/traccar-web/releases/download/$TRACCAR_WEB_VERSION/traccar-web.war && \
     rm /tmp/traccar.zip && \
