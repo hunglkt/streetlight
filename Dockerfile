@@ -8,7 +8,7 @@ ENV MYSQL_DATABASE streetlight
 ENV MYSQL_USER streetlight
 ENV MYSQL_PASSWORD streetlight
 
-WORKDIR /opt/streetlight
+WORKDIR /opt/traccar
 
 RUN set -ex && \
     apk add --no-cache wget mysql-client sed && \
@@ -22,7 +22,7 @@ RUN set -ex && \
     
 COPY start.sh start.sh
 
-VOLUME "/opt/streetlight/logs"
+VOLUME "/opt/traccar/logs"
 
 EXPOSE 8083
 EXPOSE 5174-5174/tcp
