@@ -24,7 +24,7 @@ COPY start.sh start.sh
 
 VOLUME "/opt/traccar/logs"
 
-EXPOSE 8083
+EXPOSE 8082
 EXPOSE 5174-5174/tcp
 EXPOSE 5174-5174/udp
 
