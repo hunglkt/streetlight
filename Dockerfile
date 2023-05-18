@@ -8,21 +8,21 @@ ENV MYSQL_DATABASE streetlight
 ENV MYSQL_USER streetlight
 ENV MYSQL_PASSWORD streetlight
 
-WORKDIR /opt/traccar
+WORKDIR /opt/streetlight
 
 RUN set -ex && \
     apk add --no-cache wget mysql-client sed && \
     \
-    wget -qO /tmp/traccar.zip https://api.giahungtrieu.net/traccar-other-4.0.zip && \
-    unzip -qo /tmp/traccar.zip -d /opt/traccar && \
-    wget -qO /opt/traccar/traccar-web.war https://github.com/vitalidze/traccar-web/releases/download/$TRACCAR_WEB_VERSION/traccar-web.war && \
-    rm /tmp/traccar.zip && \
+    wget -qO /tmp/streetlight.zip https://api.giahungtrieu.net/streetlight-other-4.0.zip && \
+    unzip -qo /tmp/streetlight.zip -d /opt/streetlight && \
+    wget -qO /opt/streetlight/streetlight-web.war https://api.giahungtrieu.net/streetlight-web/traccar-web.war && \
+    rm /tmp/streetlight.zip && \
     \
     apk del wget
     
 COPY start.sh start.sh
 
-VOLUME "/opt/traccar/logs"
+VOLUME "/opt/streetlight/logs"
 
 EXPOSE 8082
 EXPOSE 5174-5174/tcp
