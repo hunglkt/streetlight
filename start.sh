@@ -10,10 +10,10 @@ if [ `mysql -h"$MYSQL_HOST" -P"$MYSQL_PORT" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" 
 	mysql -h"$MYSQL_HOST" -P"$MYSQL_PORT" -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" $MYSQL_DATABASE < schema.sql
 fi
 
-sed -i "s/\$\[DBHOST\]/$MYSQL_HOST/g" conf/traccar.xml
-sed -i "s/\$\[DBPORT\]/$MYSQL_PORT/g" conf/traccar.xml
-sed -i "s/\$\[DBNAME\]/$MYSQL_DATABASE/g" conf/traccar.xml
-sed -i "s/\$\[DBUSER\]/$MYSQL_USER/g" conf/traccar.xml
-sed -i "s/\$\[DBPASSWORD\]/$MYSQL_PASSWORD/g" conf/traccar.xml
+sed -i "s/\$\[DBHOST\]/$MYSQL_HOST/g" conf/streetlight.xml
+sed -i "s/\$\[DBPORT\]/$MYSQL_PORT/g" conf/streetlight.xml
+sed -i "s/\$\[DBNAME\]/$MYSQL_DATABASE/g" conf/streetlight.xml
+sed -i "s/\$\[DBUSER\]/$MYSQL_USER/g" conf/streetlight.xml
+sed -i "s/\$\[DBPASSWORD\]/$MYSQL_PASSWORD/g" conf/streetlight.xml
 
-java -Djava.net.preferIPv4Stack=true -Xmx512m -jar tracker-server.jar conf/traccar.xml
+java -Djava.net.preferIPv4Stack=true -Xmx512m -jar streetlight-server.jar conf/streetlight.xml
